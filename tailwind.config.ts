@@ -14,12 +14,18 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      "2xl": "1400px",
+      "3xl": "1900px",
+    },
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+
     },
     extend: {
       colors: {
@@ -43,6 +49,10 @@ const config = {
       fontSize: {
         14: "14.38px",
         18: "18.44px"
+      },
+      backgroundImage: {
+        "sw-1": "url(/images/sw_1.png)",
+        "sw-2": "url(/images/sw_2.png)",
       }
     },
   },

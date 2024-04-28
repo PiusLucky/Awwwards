@@ -10,10 +10,10 @@ function HeroSection() {
         showGradient={false}
       />
 
-      <div className="absolute text-[64px] font-bold text-white/10 top-[5.5rem] right-[9.5rem] ">
+      <div className="absolute text-[2rem] md:text-[64px] font-bold text-white/10 top-[5.5rem] right-[9.5rem] ">
         Aww
       </div>
-      <div className="absolute text-[64px] font-bold text-white/80 top-[6rem] right-0 rotate-90">
+      <div className="absolute text-[2rem] md:text-[64px] font-bold text-white/80 top-[6rem] right-0 rotate-90">
         wards
       </div>
     </div>
