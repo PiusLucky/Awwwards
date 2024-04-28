@@ -1,7 +1,10 @@
 # Awwwards
 Awwwards website built with Next14, Shadcn, Aceternity, Framer motion and Tailwind.
 
+![a1](https://github.com/PiusLucky/Awwwards/assets/32282934/9f18270e-ca7d-45cb-b5c2-20054af31697)
+
 # Youtube
+https://youtu.be/fsEk6ZRWCv0
 
 # ☁️ Deployed link
 https://awwwards-nine.vercel.app/
