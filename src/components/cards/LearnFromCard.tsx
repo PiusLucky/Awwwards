@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import { Separator } from "../ui/separator";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import customAwwwardsVariants from "@/lib/animation";
 
 interface IProps {
   image: string;
@@ -34,7 +38,13 @@ function LearnFromCard({
   hasBadge = false,
 }: IProps) {
   return (
-    <div className="bg-white">
+    <motion.div
+      variants={customAwwwardsVariants.wrapper}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false }}
+      className="bg-white"
+    >
       <div className="relative">
         <img src={image} alt="course banner" className="rounded-t-[1rem]" />
         <div className="absolute top-[35%] left-[42%] ">
@@ -52,12 +62,25 @@ function LearnFromCard({
         )}
       </div>
       <div className="p-[30px] mb-[30px]">
-        <p className="text-[21.19px] font-bold text-customDark">{title}</p>
-        <p className="text-[13.48px] mt-[8px] ">{subtitle}</p>
+        <motion.p
+          variants={customAwwwardsVariants.list}
+          className="text-[21.19px] font-bold text-customDark"
+        >
+          {title}
+        </motion.p>
+        <motion.p
+          variants={customAwwwardsVariants.list}
+          className="text-[13.48px] mt-[8px] "
+        >
+          {subtitle}
+        </motion.p>
       </div>
 
       <Separator className="border border-[#E9E9E9]" />
-      <div className="py-[35px] px-[30px] flex justify-between flex-col gap-4 md:flex-row">
+      <motion.div
+        variants={customAwwwardsVariants.list}
+        className="py-[35px] px-[30px] flex justify-between flex-col gap-4 md:flex-row"
+      >
         <div>
           By <span className="font-bold">{author}</span>
         </div>
@@ -79,9 +102,12 @@ function LearnFromCard({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Separator className="border border-[#E9E9E9]" />
-      <div className="py-[35px] px-[30px] flex justify-between flex-col gap-4 md:flex-row">
+      <motion.div
+        variants={customAwwwardsVariants.list}
+        className="py-[35px] px-[30px] flex justify-between flex-col gap-4 md:flex-row"
+      >
         <div>
           <p className="font-bold">Students</p>
           <p>{totalStudents}</p>
@@ -102,8 +128,8 @@ function LearnFromCard({
         <div>
           <ArrowRight color="#222222" />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

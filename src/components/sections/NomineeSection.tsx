@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import NomineeCard from "../cards/NomineeCard";
 import { ArrowRight } from "lucide-react";
+import customAwwwardsVariants from "@/lib/animation";
+import { motion } from "framer-motion";
 
 function NomineeSection() {
   const data = [
@@ -29,22 +33,36 @@ function NomineeSection() {
         <p className="text-14 text-customDark text-center">Latest</p>
 
         <div className="text-center">
-          <div className="relative inline-block text-[4rem] lg:text-[164px] font-bold text-customDark ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: false }}
+            className="relative inline-block text-[4rem] lg:text-[164px] font-bold text-customDark "
+          >
             NOMINEES
             <div className="hidden lg:block absolute -right-10 bottom-4">
               <img src="/images/yellow_rectangle.png" alt="yellow rectangle" />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <p className="text-center">Vote for the latest websites on awwwards</p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8 justify-between mt-8 md:mt-[100px]">
+      <motion.div
+        variants={customAwwwardsVariants.cardWrapper}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false }}
+        className="flex flex-col md:flex-row gap-8 justify-between mt-8 md:mt-[100px]"
+      >
         {data.map((nominee, index) => (
-          <NomineeCard {...nominee} key={index} />
+          <motion.div variants={customAwwwardsVariants.cardItem} key={index}>
+            <NomineeCard {...nominee} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="flex justify-end mt-[50px] mb-[80px]">
         <img src="/images/chevron_right_button.png" alt="chevron right" />

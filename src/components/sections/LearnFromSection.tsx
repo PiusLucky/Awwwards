@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import LearnFromCard from "../cards/LearnFromCard";
+import { motion } from "framer-motion";
 
 function LearnFromSection() {
   const data = [
@@ -69,9 +72,15 @@ function LearnFromSection() {
     <section>
       <div>
         <p className="text-14 text-customDark">Academy</p>
-        <p className="leading-8 md:leading-tight text-[2rem] md:text-[50.97px] font-bold text-customDark">
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, y: 0 }}
+          viewport={{ once: false }}
+          className="leading-8 md:leading-tight text-[2rem] md:text-[50.97px] font-bold text-customDark"
+        >
           Learn from the <br /> best instructors.
-        </p>
+        </motion.p>
 
         <div className="mt-16 md:mt-[102px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {data.map((course, index) => (

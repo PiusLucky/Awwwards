@@ -1,6 +1,10 @@
+"use client";
+
 import React from "react";
 import FollowBrandCard from "../cards/FollowBrandCard";
 import { Separator } from "../ui/separator";
+import { motion } from "framer-motion";
+import customAwwwardsVariants from "@/lib/animation";
 
 function FollowBrandSection() {
   const newsData = [
@@ -71,11 +75,19 @@ function FollowBrandSection() {
       <div className="flex gap-[58px] flex-col md:flex-row mt-8 md:mt-[105px] justify-between">
         <section className="flex-grow">
           <p className="font-bold text-14 mb-[33px]"> w.news</p>
-          <div className="flex flex-col gap-1">
+          <motion.div
+            className="flex flex-col gap-1"
+            variants={customAwwwardsVariants.wrapper}
+            viewport={{ once: true }}
+            initial="hidden"
+            whileInView="visible"
+          >
             {newsData.map((data, index) => (
-              <FollowBrandCard {...data} key={index} />
+              <motion.div key={index} variants={customAwwwardsVariants.list}>
+                <FollowBrandCard {...data} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         <section className="flex-grow">
@@ -83,11 +95,19 @@ function FollowBrandSection() {
             {" "}
             w.creators - close to you
           </p>
-          <div className="flex flex-col gap-1">
+          <motion.div
+            className="flex flex-col gap-1"
+            variants={customAwwwardsVariants.wrapper}
+            viewport={{ once: true }}
+            initial="hidden"
+            whileInView="visible"
+          >
             {newsData2.map((data, index) => (
-              <FollowBrandCard {...data} key={index} />
+              <motion.div key={index} variants={customAwwwardsVariants.list}>
+                <FollowBrandCard {...data} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         <section>
